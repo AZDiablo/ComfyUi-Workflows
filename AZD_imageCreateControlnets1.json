@@ -1,0 +1,2248 @@
+{
+  "last_node_id": 123,
+  "last_link_id": 283,
+  "nodes": [
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1152.818413287366,
+        174.56247569205564
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 21
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 84
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            24
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 17,
+      "type": "ReActorLoadFaceModel",
+      "pos": [
+        1071.5269517806312,
+        12.43832996910775
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": [
+            23
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorLoadFaceModel"
+      },
+      "widgets_values": [
+        "facemodel.safetensors"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "LoadImage",
+      "pos": [
+        730,
+        -374
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            22
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_02346_ (2).png",
+        "image"
+      ]
+    },
+    {
+      "id": 53,
+      "type": "SaveImage",
+      "pos": [
+        1441,
+        -111
+      ],
+      "size": {
+        "0": 746.0926513671875,
+        "1": 807.4776000976562
+      },
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 214
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 86,
+      "type": "CLIPVisionLoader",
+      "pos": [
+        -148.32510883789047,
+        -368.6088597076412
+      ],
+      "size": {
+        "0": 362.0284118652344,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "links": [
+            221
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPVisionLoader"
+      },
+      "widgets_values": [
+        "SDXL\\CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 89,
+      "type": "IPAdapterModelLoader",
+      "pos": [
+        271.67489116210925,
+        -378.6088597076413
+      ],
+      "size": {
+        "0": 374.8096618652344,
+        "1": 67.0824203491211
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IPADAPTER",
+          "type": "IPADAPTER",
+          "links": [
+            220
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IPAdapterModelLoader"
+      },
+      "widgets_values": [
+        "SDXL\\ip-adapter_sdxl.bin"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        125,
+        337
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 15,
+          "widget": {
+            "name": "width"
+          },
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 16,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            20
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 13,
+      "type": "PrimitiveNode",
+      "pos": [
+        -163,
+        340
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            16,
+            65,
+            66
+          ],
+          "widget": {
+            "name": "height"
+          },
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        1024,
+        "fixed"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "PrimitiveNode",
+      "pos": [
+        -158,
+        190
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            15,
+            63,
+            64
+          ],
+          "widget": {
+            "name": "width"
+          },
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        1024,
+        "fixed"
+      ]
+    },
+    {
+      "id": 91,
+      "type": "PreviewImage",
+      "pos": [
+        1444,
+        -551
+      ],
+      "size": {
+        "0": 337.5270690917969,
+        "1": 387.6474914550781
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 225
+        }
+      ],
+      "title": "reference model",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 93,
+      "type": "ImageUpscaleWithModel",
+      "pos": [
+        1929,
+        -235
+      ],
+      "size": {
+        "0": 241.79998779296875,
+        "1": 46
+      },
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 228,
+          "slot_index": 0
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 229
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            227
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      }
+    },
+    {
+      "id": 94,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        1864,
+        -362
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            228
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "4x-UltraSharp.pth"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "ReActorFaceSwap",
+      "pos": [
+        1072,
+        -376
+      ],
+      "size": {
+        "0": 315,
+        "1": 338
+      },
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 24
+        },
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 22
+        },
+        {
+          "name": "face_model",
+          "type": "FACE_MODEL",
+          "link": 23,
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            214,
+            229
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap"
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128.onnx",
+        "YOLOv5n",
+        "GFPGANv1.4.pth",
+        1,
+        1,
+        "no",
+        "no",
+        "0",
+        "0",
+        1
+      ]
+    },
+    {
+      "id": 90,
+      "type": "Load Image Batch",
+      "pos": [
+        -504,
+        -136
+      ],
+      "size": {
+        "0": 315,
+        "1": 222
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            225
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Load Image Batch"
+      },
+      "widgets_values": [
+        "incremental_image",
+        200,
+        "Batch 001",
+        "D:\\Pictures",
+        "*",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 87,
+      "type": "IPAdapterApply",
+      "pos": [
+        302,
+        -199
+      ],
+      "size": {
+        "0": 315,
+        "1": 258
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "ipadapter",
+          "type": "IPADAPTER",
+          "link": 220
+        },
+        {
+          "name": "clip_vision",
+          "type": "CLIP_VISION",
+          "link": 221
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 230
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 223
+        },
+        {
+          "name": "attn_mask",
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IPAdapterApply"
+      },
+      "widgets_values": [
+        0.7000000000000001,
+        0.2,
+        "original",
+        0,
+        1,
+        false
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 88,
+      "type": "LoadImage",
+      "pos": [
+        -108.32510883789061,
+        -258.60885970764133
+      ],
+      "size": [
+        315,
+        314.00000381469727
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            230
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00186_.jpg",
+        "image"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 106,
+      "type": "PrimitiveNode",
+      "pos": [
+        -73.34159789102172,
+        1589.0745090957348
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "connect to widget input",
+          "type": "*",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      }
+    },
+    {
+      "id": 46,
+      "type": "SDXLPromptStyler",
+      "pos": [
+        84,
+        566
+      ],
+      "size": {
+        "0": 400,
+        "1": 242
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_positive",
+          "type": "STRING",
+          "link": 54,
+          "widget": {
+            "name": "text_positive"
+          },
+          "slot_index": 0
+        },
+        {
+          "name": "text_negative",
+          "type": "STRING",
+          "link": 55,
+          "widget": {
+            "name": "text_negative"
+          },
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_positive",
+          "type": "STRING",
+          "links": [
+            56,
+            60
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "text_negative",
+          "type": "STRING",
+          "links": [
+            61,
+            62
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDXLPromptStyler"
+      },
+      "widgets_values": [
+        "waist torso legs shot, movie still, film still, cinematic, cinematic shot, Portrait photo of a women, ({Red | Blue | Green | Yellow | Purple | Pink | Brown | Black | White | Cyan | Magenta | Turquoise | Indigo | Maroon | Lavender | Teal | Peach | Gray | Olive} Spaghetti Strap square neck with mini skirt, in the garden, smile, direct lighting, bokeh, shallow depth of field, background blur, (massive perfect teardrop breasts:1.3), (long wavy dark hair), ((light bokeh)), intricate, elegant, sharp focus, soft lighting, vibrant colors, (masterpiece), (detailed face:1.2), (pores:1.4), RAW Photo, 4k, (photo Realistic), Sony A7 III, (EF [85mm:400mm:0.20] lens:1.2), (f/32 aperture:1.2), high quality\n",
+        "(tattoo:1.1), (3d, render, cgi, doll, painting, fake, Airbrush, Photoshop, cartoon, 3d modeling:1.4), (worst quality, low quality:1.4), black and white photo, deformed, bad skin, bad hands, bad fingers, bad eyes, long body, blurry, duplicated, cloned, duplicate body parts, disfigured, extra limbs, fused fingers, extra fingers, twisted, distorted, mutated hands, conjoined, bad face, missing limbs, bad anatomy, bad proportions, logo, watermark, text, copyright, signature, lowres, mutilated, artifacts, gross, ugly, age spot, cloned body parts, distorted physique, physical anomalies, surrealistic features, unconventional physique, unusual bodily characteristics, warped limbs",
+        "sai-photographic",
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 45,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        366,
+        730
+      ],
+      "size": {
+        "0": 400,
+        "1": 270
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 72
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 64,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 66,
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 62,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 61,
+          "widget": {
+            "name": "text_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            260
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "(tattoo:1.1), (3d, render, cgi, doll, painting, fake, Airbrush, Photoshop, cartoon, 3d modeling:1.4), (worst quality, low quality:1.4), \nblack and white photo, deformed, bad skin, bad hands, bad fingers, bad eyes, long body, blurry, duplicated, cloned, duplicate body parts, disfigured, extra limbs, fused fingers, extra fingers, twisted, distorted, mutated hands, conjoined, bad face, missing limbs, bad anatomy, bad proportions, logo, watermark, text, copyright, signature, lowres, mutilated, artifacts, gross, ugly, age spot, cloned body parts, distorted physique, physical anomalies, surrealistic features, unconventional physique, unusual bodily characteristics, warped limbs",
+        "CLIP_L"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        599,
+        603
+      ],
+      "size": {
+        "0": 400,
+        "1": 270
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 71
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 63,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 65,
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 56,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 60,
+          "widget": {
+            "name": "text_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            259
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "(tattoo:1.1), (3d, render, cgi, doll, painting, fake, Airbrush, Photoshop, cartoon, 3d modeling:1.4), (worst quality, low quality:1.4), \nblack and white photo, deformed, bad skin, bad hands, bad fingers, bad eyes, long body, blurry, duplicated, cloned, duplicate body parts, disfigured, extra limbs, fused fingers, extra fingers, twisted, distorted, mutated hands, conjoined, bad face, missing limbs, bad anatomy, bad proportions, logo, watermark, text, copyright, signature, lowres, mutilated, artifacts, gross, ugly, age spot, cloned body parts, distorted physique, physical anomalies, surrealistic features, unconventional physique, unusual bodily characteristics, warped limbs",
+        "CLIP_L"
+      ]
+    },
+    {
+      "id": 102,
+      "type": "ImagePadForOutpaint",
+      "pos": [
+        216.65840210897835,
+        909.0745090957345
+      ],
+      "size": {
+        "0": 315,
+        "1": 174
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 237
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImagePadForOutpaint"
+      },
+      "widgets_values": [
+        256,
+        256,
+        256,
+        256,
+        10
+      ]
+    },
+    {
+      "id": 96,
+      "type": "Load Image Batch",
+      "pos": [
+        -153.34159789102213,
+        899.0745090957345
+      ],
+      "size": {
+        "0": 315,
+        "1": 222
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            237
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Load Image Batch"
+      },
+      "widgets_values": [
+        "incremental_image",
+        0,
+        "Batch 001",
+        "D:\\stable-diffusion\\poses\\referece images",
+        "*",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 97,
+      "type": "PreviewImage",
+      "pos": [
+        673.8479501953129,
+        897.7406514434816
+      ],
+      "size": {
+        "0": 337.5270690917969,
+        "1": 387.6474914550781
+      },
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 264
+        }
+      ],
+      "title": "reference model",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 120,
+      "type": "PreviewImage",
+      "pos": [
+        1063.8479501953123,
+        897.7406514434816
+      ],
+      "size": {
+        "0": 337.5270690917969,
+        "1": 387.6474914550781
+      },
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 270
+        }
+      ],
+      "title": "reference model",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 122,
+      "type": "ControlNetLoaderAdvanced",
+      "pos": [
+        1063.8479501953123,
+        1507.7406514434822
+      ],
+      "size": {
+        "0": 327.6000061035156,
+        "1": 58
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "timestep_keyframe",
+          "type": "TIMESTEP_KEYFRAME",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            271
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetLoaderAdvanced"
+      },
+      "widgets_values": [
+        "lineart edge.safetensors"
+      ]
+    },
+    {
+      "id": 123,
+      "type": "AIO_Preprocessor",
+      "pos": [
+        1063.8479501953123,
+        1357.7406514434822
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 275
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "resolution"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            270,
+            272
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AIO_Preprocessor"
+      },
+      "widgets_values": [
+        "LineArtPreprocessor",
+        512
+      ]
+    },
+    {
+      "id": 100,
+      "type": "ControlNetApply",
+      "pos": [
+        673.8479501953129,
+        1637.7406514434822
+      ],
+      "size": {
+        "0": 317.4000244140625,
+        "1": 98
+      },
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 261
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 255
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 257,
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            273
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetApply"
+      },
+      "widgets_values": [
+        0.5
+      ]
+    },
+    {
+      "id": 115,
+      "type": "Reroute (rgthree)",
+      "pos": {
+        "0": 306.6582946777344,
+        "1": 1359.07373046875,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        127.04119836425753,
+        51.118412506103255
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 278,
+          "dir": 3,
+          "has_old_label": true,
+          "label": " "
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            256,
+            275
+          ],
+          "dir": 4,
+          "has_old_label": true,
+          "label": " ",
+          "slot_index": 0
+        }
+      ],
+      "title": "Images",
+      "properties": {
+        "resizable": true,
+        "size": [
+          127.04119836425753,
+          51.118412506103255
+        ],
+        "showLabel": true,
+        "connections_layout": [
+          "Left",
+          "Right"
+        ]
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 92,
+      "type": "SaveImageExtended",
+      "pos": [
+        2238,
+        -128
+      ],
+      "size": {
+        "0": 400.8364562988281,
+        "1": 463.7119140625
+      },
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 227
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImageExtended"
+      },
+      "widgets_values": [
+        "ComfyUI",
+        "JPEG"
+      ]
+    },
+    {
+      "id": 118,
+      "type": "ControlNetLoaderAdvanced",
+      "pos": [
+        673.8479501953129,
+        1507.7406514434822
+      ],
+      "size": {
+        "0": 327.6000061035156,
+        "1": 58
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "timestep_keyframe",
+          "type": "TIMESTEP_KEYFRAME",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            255
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetLoaderAdvanced"
+      },
+      "widgets_values": [
+        "depth-zoe-xl-v1.0-controlnet.safetensors"
+      ]
+    },
+    {
+      "id": 119,
+      "type": "AIO_Preprocessor",
+      "pos": [
+        673.8479501953129,
+        1357.7406514434822
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 256
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "resolution"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            257,
+            264
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AIO_Preprocessor"
+      },
+      "widgets_values": [
+        "Zoe_DepthAnythingPreprocessor",
+        512
+      ]
+    },
+    {
+      "id": 85,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        219,
+        417
+      ],
+      "size": {
+        "0": 441.0559387207031,
+        "1": 82
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 218
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            223,
+            281
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "SDXL\\JuggerCineXL2.safetensors",
+        1.2
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        137,
+        172
+      ],
+      "size": {
+        "0": 468.7336120605469,
+        "1": 98
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            218
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            71,
+            72
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            84
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "SDXL\\juggernautXL_v9Rundiffusionphoto2.safetensors"
+      ]
+    },
+    {
+      "id": 49,
+      "type": "PrimitiveNode",
+      "pos": [
+        -128,
+        548
+      ],
+      "size": {
+        "0": 390.07635498046875,
+        "1": 202.47532653808594
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 14,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            55
+          ],
+          "widget": {
+            "name": "text_negative"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "(tattoo:1.1), (3d, render, cgi, doll, painting, fake, Airbrush, Photoshop, cartoon, 3d modeling:1.4), (worst quality, low quality:1.4), black and white photo, deformed, bad skin, bad hands, bad fingers, bad eyes, long body, blurry, duplicated, cloned, duplicate body parts, disfigured, extra limbs, fused fingers, extra fingers, twisted, distorted, mutated hands, conjoined, bad face, missing limbs, bad anatomy, bad proportions, logo, watermark, text, copyright, signature, lowres, mutilated, artifacts, gross, ugly, age spot, cloned body parts, distorted physique, physical anomalies, surrealistic features, unconventional physique, unusual bodily characteristics, warped limbs"
+      ]
+    },
+    {
+      "id": 117,
+      "type": "Reroute (rgthree)",
+      "pos": {
+        "0": 1240,
+        "1": 730,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        129.9835496215817,
+        47.18327749633761
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 274,
+          "dir": 2,
+          "has_old_label": true,
+          "label": " "
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [],
+          "dir": 1,
+          "has_old_label": true,
+          "label": " ",
+          "slot_index": 0
+        }
+      ],
+      "title": "Postive",
+      "properties": {
+        "resizable": true,
+        "size": [
+          129.9835496215817,
+          47.18327749633761
+        ],
+        "showLabel": true,
+        "connections_layout": [
+          "Bottom",
+          "Top"
+        ]
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 98,
+      "type": "LoadImage",
+      "pos": [
+        -93.3415978910218,
+        1219.0745090957348
+      ],
+      "size": {
+        "0": 315,
+        "1": 314.0000305175781
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            278
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI2_01507_ (24).png",
+        "image"
+      ]
+    },
+    {
+      "id": 121,
+      "type": "ControlNetApply",
+      "pos": [
+        1063.8479501953123,
+        1637.7406514434822
+      ],
+      "size": {
+        "0": 317.4000244140625,
+        "1": 98
+      },
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 273
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 271
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 272,
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            274
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetApply"
+      },
+      "widgets_values": [
+        0.5
+      ]
+    },
+    {
+      "id": 116,
+      "type": "Reroute (rgthree)",
+      "pos": {
+        "0": 1100,
+        "1": 720,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        127.04119836425753,
+        51.118412506103255
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 259,
+          "dir": 1,
+          "has_old_label": true,
+          "label": " ",
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            261,
+            283
+          ],
+          "dir": 2,
+          "has_old_label": true,
+          "label": " ",
+          "slot_index": 0
+        }
+      ],
+      "title": "Postive",
+      "properties": {
+        "resizable": true,
+        "size": [
+          127.04119836425753,
+          51.118412506103255
+        ],
+        "showLabel": true,
+        "connections_layout": [
+          "Top",
+          "Bottom"
+        ]
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 10,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        772,
+        173
+      ],
+      "size": {
+        "0": 315,
+        "1": 334
+      },
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 281
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 283
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 260
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        265458162711612,
+        "randomize",
+        50,
+        6,
+        "dpmpp_3m_sde",
+        "karras",
+        0,
+        10000,
+        "disable"
+      ]
+    },
+    {
+      "id": 48,
+      "type": "PrimitiveNode",
+      "pos": [
+        1435,
+        741
+      ],
+      "size": {
+        "0": 694.6829833984375,
+        "1": 134.42420959472656
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            54
+          ],
+          "widget": {
+            "name": "text_positive"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "waist torso legs shot, movie still, film still, cinematic, cinematic shot, Portrait photo of a women, ({Red | Blue | Green | Yellow | Purple | Pink | Brown | Black | White | Cyan | Magenta | Turquoise | Indigo | Maroon | Lavender | Teal | Peach | Gray | Olive} Spaghetti Strap square neck with mini skirt, in the garden, smile, direct lighting, bokeh, shallow depth of field, background blur, (massive perfect teardrop breasts:1.3), (long wavy dark hair), ((light bokeh)), intricate, elegant, sharp focus, soft lighting, vibrant colors, (masterpiece), (detailed face:1.2), (pores:1.4), RAW Photo, 4k, (photo Realistic), Sony A7 III, (EF [85mm:400mm:0.20] lens:1.2), (f/32 aperture:1.2), high quality\n"
+      ]
+    }
+  ],
+  "links": [
+    [
+      15,
+      12,
+      0,
+      5,
+      0,
+      "INT"
+    ],
+    [
+      16,
+      13,
+      0,
+      5,
+      1,
+      "INT"
+    ],
+    [
+      20,
+      5,
+      0,
+      10,
+      3,
+      "LATENT"
+    ],
+    [
+      21,
+      10,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      22,
+      18,
+      0,
+      16,
+      1,
+      "IMAGE"
+    ],
+    [
+      23,
+      17,
+      0,
+      16,
+      2,
+      "FACE_MODEL"
+    ],
+    [
+      24,
+      8,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      54,
+      48,
+      0,
+      46,
+      0,
+      "STRING"
+    ],
+    [
+      55,
+      49,
+      0,
+      46,
+      1,
+      "STRING"
+    ],
+    [
+      56,
+      46,
+      0,
+      47,
+      3,
+      "STRING"
+    ],
+    [
+      60,
+      46,
+      0,
+      47,
+      4,
+      "STRING"
+    ],
+    [
+      61,
+      46,
+      1,
+      45,
+      4,
+      "STRING"
+    ],
+    [
+      62,
+      46,
+      1,
+      45,
+      3,
+      "STRING"
+    ],
+    [
+      63,
+      12,
+      0,
+      47,
+      1,
+      "INT"
+    ],
+    [
+      64,
+      12,
+      0,
+      45,
+      1,
+      "INT"
+    ],
+    [
+      65,
+      13,
+      0,
+      47,
+      2,
+      "INT"
+    ],
+    [
+      66,
+      13,
+      0,
+      45,
+      2,
+      "INT"
+    ],
+    [
+      71,
+      4,
+      1,
+      47,
+      0,
+      "CLIP"
+    ],
+    [
+      72,
+      4,
+      1,
+      45,
+      0,
+      "CLIP"
+    ],
+    [
+      84,
+      4,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      214,
+      16,
+      0,
+      53,
+      0,
+      "IMAGE"
+    ],
+    [
+      218,
+      4,
+      0,
+      85,
+      0,
+      "MODEL"
+    ],
+    [
+      220,
+      89,
+      0,
+      87,
+      0,
+      "IPADAPTER"
+    ],
+    [
+      221,
+      86,
+      0,
+      87,
+      1,
+      "CLIP_VISION"
+    ],
+    [
+      223,
+      85,
+      0,
+      87,
+      3,
+      "MODEL"
+    ],
+    [
+      225,
+      90,
+      0,
+      91,
+      0,
+      "IMAGE"
+    ],
+    [
+      227,
+      93,
+      0,
+      92,
+      0,
+      "IMAGE"
+    ],
+    [
+      228,
+      94,
+      0,
+      93,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      229,
+      16,
+      0,
+      93,
+      1,
+      "IMAGE"
+    ],
+    [
+      230,
+      88,
+      0,
+      87,
+      2,
+      "IMAGE"
+    ],
+    [
+      237,
+      96,
+      0,
+      102,
+      0,
+      "IMAGE"
+    ],
+    [
+      255,
+      118,
+      0,
+      100,
+      1,
+      "CONTROL_NET"
+    ],
+    [
+      256,
+      115,
+      0,
+      119,
+      0,
+      "IMAGE"
+    ],
+    [
+      257,
+      119,
+      0,
+      100,
+      2,
+      "IMAGE"
+    ],
+    [
+      259,
+      47,
+      0,
+      116,
+      0,
+      "*"
+    ],
+    [
+      260,
+      45,
+      0,
+      10,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      261,
+      116,
+      0,
+      100,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      264,
+      119,
+      0,
+      97,
+      0,
+      "IMAGE"
+    ],
+    [
+      270,
+      123,
+      0,
+      120,
+      0,
+      "IMAGE"
+    ],
+    [
+      271,
+      122,
+      0,
+      121,
+      1,
+      "CONTROL_NET"
+    ],
+    [
+      272,
+      123,
+      0,
+      121,
+      2,
+      "IMAGE"
+    ],
+    [
+      273,
+      100,
+      0,
+      121,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      274,
+      121,
+      0,
+      117,
+      0,
+      "*"
+    ],
+    [
+      275,
+      115,
+      0,
+      123,
+      0,
+      "IMAGE"
+    ],
+    [
+      278,
+      98,
+      0,
+      115,
+      0,
+      "*"
+    ],
+    [
+      281,
+      85,
+      0,
+      10,
+      0,
+      "MODEL"
+    ],
+    [
+      283,
+      116,
+      0,
+      10,
+      1,
+      "CONDITIONING"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Group",
+      "bounding": [
+        -169,
+        101,
+        1589,
+        693
+      ],
+      "color": "#a1309b",
+      "font_size": 24
+    },
+    {
+      "title": "Group",
+      "bounding": [
+        706,
+        -464,
+        709,
+        552
+      ],
+      "color": "#A88",
+      "font_size": 24
+    },
+    {
+      "title": "ipAdapter",
+      "bounding": [
+        -169,
+        -473,
+        847,
+        565
+      ],
+      "color": "#8A8",
+      "font_size": 24
+    },
+    {
+      "title": "Group",
+      "bounding": [
+        632,
+        805,
+        787,
+        963
+      ],
+      "color": "#8A8",
+      "font_size": 24
+    },
+    {
+      "title": "Group",
+      "bounding": [
+        -174,
+        808,
+        740,
+        864
+      ],
+      "color": "#3f789e",
+      "font_size": 24
+    }
+  ],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
