@@ -1,0 +1,327 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "dreamshaper_8.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple"
+  },
+  "2": {
+    "inputs": {
+      "vae_name": "vae-ft-mse-840000-ema-pruned.ckpt.vae.pt"
+    },
+    "class_type": "VAELoader"
+  },
+  "3": {
+    "inputs": {
+      "seed": 178063926614760,
+      "steps": 25,
+      "cfg": 9,
+      "sampler_name": "dpmpp_2m_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 0.74,
+      "model": [
+        "28",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "25",
+        0
+      ]
+    },
+    "class_type": "KSampler"
+  },
+  "4": {
+    "inputs": {
+      "image": "clipspace/clipspace-mask-1869870.8999999985.png [input]",
+      "choose file to upload": "image"
+    },
+    "class_type": "LoadImage"
+  },
+  "5": {
+    "inputs": {
+      "text": "A photo of a rusty old human spaceship from 2300, of old rectangular design. The spaceship's exterior showcases industrial materials that resist the harsh conditions of space. small lights are illuminating the exterior of the spaceship",
+      "clip": [
+        "26",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "6": {
+    "inputs": {
+      "text": "bad quality, bad composition,anime, cartoon, graphic, (text:1.3), painting, crayon, graphite, abstract, glitch, (logo:1.3), embedding:FastNegativeV2, embedding:BadDream, embedding:UnrealisticDream, ",
+      "clip": [
+        "26",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "7": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "VAEDecode"
+  },
+  "8": {
+    "inputs": {
+      "images": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "PreviewImage"
+  },
+  "11": {
+    "inputs": {
+      "mask": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "MaskToImage"
+  },
+  "12": {
+    "inputs": {
+      "padding": 80,
+      "constraints": "keep_ratio",
+      "constraint_x": 64,
+      "constraint_y": 64,
+      "min_width": 0,
+      "min_height": 0,
+      "batch_behavior": "match_ratio",
+      "mask": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "Mask To Region"
+  },
+  "14": {
+    "inputs": {
+      "force_resize_width": 768,
+      "force_resize_height": 768,
+      "image": [
+        "4",
+        0
+      ],
+      "mask": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "Cut By Mask"
+  },
+  "19": {
+    "inputs": {
+      "force_resize_width": 768,
+      "force_resize_height": 768,
+      "image": [
+        "11",
+        0
+      ],
+      "mask": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "Cut By Mask"
+  },
+  "21": {
+    "inputs": {
+      "channel": "red",
+      "image": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "ImageToMask"
+  },
+  "22": {
+    "inputs": {
+      "resize_behavior": "keep_ratio_fit",
+      "image_base": [
+        "4",
+        0
+      ],
+      "image_to_paste": [
+        "7",
+        0
+      ],
+      "mask": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "Paste By Mask"
+  },
+  "24": {
+    "inputs": {
+      "pixels": [
+        "14",
+        0
+      ],
+      "vae": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "VAEEncode"
+  },
+  "25": {
+    "inputs": {
+      "samples": [
+        "24",
+        0
+      ],
+      "mask": [
+        "21",
+        0
+      ]
+    },
+    "class_type": "SetLatentNoiseMask"
+  },
+  "26": {
+    "inputs": {
+      "lora_name": "detail_slider_v4.safetensors",
+      "strength_model": 4,
+      "strength_clip": 1,
+      "model": [
+        "29",
+        0
+      ],
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "LoraLoader"
+  },
+  "27": {
+    "inputs": {
+      "b1": 1.05,
+      "b2": 1.1500000000000001,
+      "s1": 0.7000000000000001,
+      "s2": 0.35000000000000003,
+      "model": [
+        "26",
+        0
+      ]
+    },
+    "class_type": "FreeU"
+  },
+  "28": {
+    "inputs": {
+      "mimic_scale": 1,
+      "threshold_percentile": 1,
+      "mimic_mode": "Cosine Down",
+      "mimic_scale_min": 0,
+      "cfg_mode": "Cosine Down",
+      "cfg_scale_min": 0,
+      "sched_val": 1,
+      "separate_feature_channels": "enable",
+      "scaling_startpoint": "ZERO",
+      "variability_measure": "STD",
+      "interpolate_phi": 0.7000000000000001,
+      "model": [
+        "27",
+        0
+      ]
+    },
+    "class_type": "DynamicThresholdingFull"
+  },
+  "29": {
+    "inputs": {
+      "weight": 1,
+      "noise": 0,
+      "ipadapter": [
+        "30",
+        0
+      ],
+      "clip_vision": [
+        "31",
+        0
+      ],
+      "image": [
+        "32",
+        0
+      ],
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "IPAdapterApply"
+  },
+  "30": {
+    "inputs": {
+      "ipadapter_file": "ip-adapter_sd15.bin"
+    },
+    "class_type": "IPAdapterModelLoader"
+  },
+  "31": {
+    "inputs": {
+      "clip_name": "model.safetensors"
+    },
+    "class_type": "CLIPVisionLoader"
+  },
+  "32": {
+    "inputs": {
+      "image": "tector35-1-3840x2160.jpg",
+      "choose file to upload": "image"
+    },
+    "class_type": "LoadImage"
+  },
+  "45": {
+    "inputs": {
+      "images": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "PreviewImage"
+  },
+  "46": {
+    "inputs": {
+      "images": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "PreviewImage"
+  },
+  "47": {
+    "inputs": {
+      "images": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "PreviewImage"
+  },
+  "62": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "22",
+        0
+      ]
+    },
+    "class_type": "SaveImage"
+  }
+}
