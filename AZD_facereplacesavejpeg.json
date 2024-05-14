@@ -1,0 +1,647 @@
+{
+  "last_node_id": 22,
+  "last_link_id": 29,
+  "nodes": [
+    {
+      "id": 19,
+      "type": "LoadImage",
+      "pos": [
+        847.5572868411871,
+        -340.0922519844056
+      ],
+      "size": {
+        "0": 315,
+        "1": 314.0000305175781
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            18
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_02346_ (9).png",
+        "image"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "Reroute (rgthree)",
+      "pos": {
+        "0": 1097.5555419921875,
+        "1": -520.0925903320312,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        129.9835496215817,
+        47.18327749633761
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 23,
+          "dir": 1,
+          "has_old_label": true,
+          "label": " "
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": [
+            16,
+            19,
+            22
+          ],
+          "dir": 2,
+          "has_old_label": true,
+          "label": " ",
+          "slot_index": 0
+        }
+      ],
+      "title": "Postive",
+      "properties": {
+        "resizable": true,
+        "size": [
+          129.9835496215817,
+          47.18327749633761
+        ],
+        "showLabel": true,
+        "connections_layout": [
+          "Top",
+          "Bottom"
+        ]
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 16,
+      "type": "ReActorLoadFaceModel",
+      "pos": [
+        748,
+        -590
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": [
+            23
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorLoadFaceModel"
+      },
+      "widgets_values": [
+        "facemodel.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "PreviewImage",
+      "pos": [
+        938,
+        69
+      ],
+      "size": {
+        "0": 287.7564697265625,
+        "1": 394.0719299316406
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 9,
+      "type": "SaveImageExtended",
+      "pos": [
+        1299,
+        54
+      ],
+      "size": {
+        "0": 400.8364562988281,
+        "1": 463.7119140625
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 26
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImageExtended"
+      },
+      "widgets_values": [
+        "ComfyUI",
+        "JPEG"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "Load Image Batch",
+      "pos": [
+        520,
+        87
+      ],
+      "size": {
+        "0": 315,
+        "1": 222
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Load Image Batch"
+      },
+      "widgets_values": [
+        "incremental_image",
+        0,
+        "Batch 001",
+        "D:\\stable-diffusion\\facereplace",
+        "*",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "ReActorFaceSwap",
+      "pos": [
+        507.5572868411871,
+        -370.09225198440555
+      ],
+      "size": {
+        "0": 315,
+        "1": 338
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 29
+        },
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 15
+        },
+        {
+          "name": "face_model",
+          "type": "FACE_MODEL",
+          "link": 16,
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            27
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap"
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128.onnx",
+        "retinaface_resnet50",
+        "GFPGANv1.4.pth",
+        1,
+        1,
+        "no",
+        "no",
+        "0",
+        "0",
+        1
+      ]
+    },
+    {
+      "id": 18,
+      "type": "ReActorFaceSwap",
+      "pos": [
+        1197.5572868411887,
+        -370.09225198440555
+      ],
+      "size": {
+        "0": 315,
+        "1": 338
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 27
+        },
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 18
+        },
+        {
+          "name": "face_model",
+          "type": "FACE_MODEL",
+          "link": 19,
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            28
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap"
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128.onnx",
+        "retinaface_resnet50",
+        "GFPGANv1.4.pth",
+        1,
+        1,
+        "no",
+        "no",
+        "1",
+        "0",
+        1
+      ]
+    },
+    {
+      "id": 12,
+      "type": "LoadImage",
+      "pos": [
+        129,
+        97
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            29
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_05483_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "ReActorFaceSwap",
+      "pos": [
+        1957.5572868411887,
+        -370.09225198440555
+      ],
+      "size": {
+        "0": 315,
+        "1": 338
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 28
+        },
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 21
+        },
+        {
+          "name": "face_model",
+          "type": "FACE_MODEL",
+          "link": 22,
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            26
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap"
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128.onnx",
+        "retinaface_resnet50",
+        "GFPGANv1.4.pth",
+        1,
+        1,
+        "no",
+        "no",
+        "1",
+        "0",
+        1
+      ]
+    },
+    {
+      "id": 21,
+      "type": "LoadImage",
+      "pos": [
+        1607.5572868411894,
+        -340.0922519844056
+      ],
+      "size": {
+        "0": 315,
+        "1": 314.0000305175781
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Lairissa (10).jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "LoadImage",
+      "pos": [
+        137.5572868411863,
+        -340.0922519844056
+      ],
+      "size": {
+        "0": 315,
+        "1": 314.0000305175781
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            15
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Anahi (6).jpg",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      15,
+      17,
+      0,
+      15,
+      1,
+      "IMAGE"
+    ],
+    [
+      16,
+      22,
+      0,
+      15,
+      2,
+      "FACE_MODEL"
+    ],
+    [
+      18,
+      19,
+      0,
+      18,
+      1,
+      "IMAGE"
+    ],
+    [
+      19,
+      22,
+      0,
+      18,
+      2,
+      "FACE_MODEL"
+    ],
+    [
+      21,
+      21,
+      0,
+      20,
+      1,
+      "IMAGE"
+    ],
+    [
+      22,
+      22,
+      0,
+      20,
+      2,
+      "FACE_MODEL"
+    ],
+    [
+      23,
+      16,
+      0,
+      22,
+      0,
+      "*"
+    ],
+    [
+      26,
+      20,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      27,
+      15,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      28,
+      18,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      12,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
