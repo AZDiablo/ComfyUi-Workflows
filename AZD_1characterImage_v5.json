@@ -1,0 +1,1067 @@
+{
+  "last_node_id": 168,
+  "last_link_id": 613,
+  "nodes": [
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        557.8597656689519,
+        321.9930210468673
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 15,
+          "widget": {
+            "name": "width"
+          },
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 16,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            20
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 12,
+      "type": "PrimitiveNode",
+      "pos": [
+        287.85976566895124,
+        321.9930210468673
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            15,
+            63,
+            64
+          ],
+          "widget": {
+            "name": "width"
+          },
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        1024,
+        "fixed"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "PrimitiveNode",
+      "pos": [
+        277.8597656689512,
+        451.9930210468673
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            16,
+            65,
+            66
+          ],
+          "widget": {
+            "name": "height"
+          },
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        1024,
+        "fixed"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        557.8597656689519,
+        391.9930210468673
+      ],
+      "size": {
+        "0": 400,
+        "1": 270
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 403
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 63,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 65,
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 56,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 60,
+          "widget": {
+            "name": "text_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            604
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "(tattoo:1.1), (3d, render, cgi, doll, painting, fake, Airbrush, Photoshop, cartoon, 3d modeling:1.4), (worst quality, low quality:1.4), \nblack and white photo, deformed, bad skin, bad hands, bad fingers, bad eyes, long body, blurry, duplicated, cloned, duplicate body parts, disfigured, extra limbs, fused fingers, extra fingers, twisted, distorted, mutated hands, conjoined, bad face, missing limbs, bad anatomy, bad proportions, logo, watermark, text, copyright, signature, lowres, mutilated, artifacts, gross, ugly, age spot, cloned body parts, distorted physique, physical anomalies, surrealistic features, unconventional physique, unusual bodily characteristics, warped limbs",
+        "CLIP_L"
+      ]
+    },
+    {
+      "id": 45,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        557.8597656689519,
+        461.9930210468674
+      ],
+      "size": {
+        "0": 400,
+        "1": 270
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 404
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 64,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 66,
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 62,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 61,
+          "widget": {
+            "name": "text_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            605
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "(tattoo:1.1), (3d, render, cgi, doll, painting, fake, Airbrush, Photoshop, cartoon, 3d modeling:1.4), (worst quality, low quality:1.4), \nblack and white photo, deformed, bad skin, bad hands, bad fingers, bad eyes, long body, blurry, duplicated, cloned, duplicate body parts, disfigured, extra limbs, fused fingers, extra fingers, twisted, distorted, mutated hands, conjoined, bad face, missing limbs, bad anatomy, bad proportions, logo, watermark, text, copyright, signature, lowres, mutilated, artifacts, gross, ugly, age spot, cloned body parts, distorted physique, physical anomalies, surrealistic features, unconventional physique, unusual bodily characteristics, warped limbs",
+        "CLIP_L"
+      ]
+    },
+    {
+      "id": 167,
+      "type": "ReActorOptions",
+      "pos": [
+        1060.4623320129383,
+        -161.70574193725608
+      ],
+      "size": {
+        "0": 315,
+        "1": 202
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "OPTIONS",
+          "type": "OPTIONS",
+          "links": [
+            609
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorOptions"
+      },
+      "widgets_values": [
+        "left-right",
+        "0",
+        "no",
+        "left-right",
+        "0",
+        "no",
+        1
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 166,
+      "type": "LoadImage",
+      "pos": [
+        700.4623320129397,
+        -291.7057419372561
+      ],
+      "size": {
+        "0": 315,
+        "1": 314.0000305175781
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            607
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Marcie.png",
+        "image"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 165,
+      "type": "ReActorLoadFaceModel",
+      "pos": [
+        698.4623320129397,
+        -454.7057419372561
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": [
+            608
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorLoadFaceModel"
+      },
+      "widgets_values": [
+        "facemodel.safetensors"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        287.85976566895124,
+        171.9930210468673
+      ],
+      "size": {
+        "0": 468.7336120605469,
+        "1": 98
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            603
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            403,
+            404
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            84
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "pony\\ponyRealism_v21VAE.safetensors"
+      ]
+    },
+    {
+      "id": 46,
+      "type": "SDXLPromptStyler",
+      "pos": [
+        518,
+        552
+      ],
+      "size": {
+        "0": 400,
+        "1": 242
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_positive",
+          "type": "STRING",
+          "link": 54,
+          "widget": {
+            "name": "text_positive"
+          },
+          "slot_index": 0
+        },
+        {
+          "name": "text_negative",
+          "type": "STRING",
+          "link": 55,
+          "widget": {
+            "name": "text_negative"
+          },
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_positive",
+          "type": "STRING",
+          "links": [
+            56,
+            60
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "text_negative",
+          "type": "STRING",
+          "links": [
+            61,
+            62
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDXLPromptStyler"
+      },
+      "widgets_values": [
+        "score_9,score_8_up, BREAK, very aesthetic, medium body shot, (North American woman), smile, relaxing on grass in backyard, (ribbed buttons square neck mini dress), (long brunette wavy hair), (large breasts), BREAK, dramatic shadows, 8k, UHD, masterpiece, direct lighting, vibrant hues, natural illumination, depth of field, selective focus, bokeh, (detailed face:1.2), (pores:1.4), RAW photo, (realistic)",
+        "score_1,score_2,score_3,score_4,score_5,score_6,score_7, (teeth:1.3), (tattoo:1.1), (3d render, CGI, cartoon, Photoshop:1.4), (worst quality, low quality:1.4), deformed, bad skin, hands, eyes, long body, blurry, duplicated, disfigured, extra/fused/twisted fingers, distorted/mutated hands, conjoined, bad face/anatomy/proportions, logo, watermark, text, lowres, gross, ugly, surrealistic, unusual, warped limbs.",
+        "sai-photographic",
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 10,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        797.8597656689519,
+        311.9930210468673
+      ],
+      "size": {
+        "0": 315,
+        "1": 334
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 603
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 604
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 605
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        133424534762817,
+        "randomize",
+        40,
+        7,
+        "dpmpp_3m_sde",
+        "karras",
+        0,
+        10000,
+        "enable"
+      ]
+    },
+    {
+      "id": 91,
+      "type": "PreviewImage",
+      "pos": [
+        2202,
+        -114
+      ],
+      "size": {
+        "0": 337.5270690917969,
+        "1": 387.6474914550781
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 317
+        }
+      ],
+      "title": "reference model",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 53,
+      "type": "SaveImage",
+      "pos": [
+        1437,
+        -121
+      ],
+      "size": {
+        "0": 746.0926513671875,
+        "1": 807.4776000976562
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 613
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1157.8597656689503,
+        221.9930210468673
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 21
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 84
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            317,
+            610
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 168,
+      "type": "ReActorFaceSwapOpt",
+      "pos": [
+        1060.4623320129383,
+        -451.70574193725605
+      ],
+      "size": {
+        "0": 315,
+        "1": 238
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 610
+        },
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 607
+        },
+        {
+          "name": "face_model",
+          "type": "FACE_MODEL",
+          "link": 608
+        },
+        {
+          "name": "options",
+          "type": "OPTIONS",
+          "link": 609
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            613
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwapOpt"
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128.onnx",
+        "retinaface_resnet50",
+        "GFPGANv1.4.pth",
+        1,
+        0.5
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 49,
+      "type": "PrimitiveNode",
+      "pos": [
+        286,
+        599
+      ],
+      "size": {
+        "0": 403.27996826171875,
+        "1": 146.14556884765625
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            55
+          ],
+          "widget": {
+            "name": "text_negative"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "score_1,score_2,score_3,score_4,score_5,score_6,score_7, (teeth:1.3), (tattoo:1.1), (3d render, CGI, cartoon, Photoshop:1.4), (worst quality, low quality:1.4), deformed, bad skin, hands, eyes, long body, blurry, duplicated, disfigured, extra/fused/twisted fingers, distorted/mutated hands, conjoined, bad face/anatomy/proportions, logo, watermark, text, lowres, gross, ugly, surrealistic, unusual, warped limbs."
+      ]
+    },
+    {
+      "id": 48,
+      "type": "PrimitiveNode",
+      "pos": [
+        1445,
+        744
+      ],
+      "size": {
+        "0": 712.482421875,
+        "1": 129.65036010742188
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            54
+          ],
+          "widget": {
+            "name": "text_positive"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "score_9,score_8_up, BREAK, very aesthetic, medium body shot, (North American woman), smile, relaxing on grass in backyard, (ribbed buttons square neck mini dress), (long brunette wavy hair), (large breasts), BREAK, dramatic shadows, 8k, UHD, masterpiece, direct lighting, vibrant hues, natural illumination, depth of field, selective focus, bokeh, (detailed face:1.2), (pores:1.4), RAW photo, (realistic)"
+      ]
+    }
+  ],
+  "links": [
+    [
+      15,
+      12,
+      0,
+      5,
+      0,
+      "INT"
+    ],
+    [
+      16,
+      13,
+      0,
+      5,
+      1,
+      "INT"
+    ],
+    [
+      20,
+      5,
+      0,
+      10,
+      3,
+      "LATENT"
+    ],
+    [
+      21,
+      10,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      54,
+      48,
+      0,
+      46,
+      0,
+      "STRING"
+    ],
+    [
+      55,
+      49,
+      0,
+      46,
+      1,
+      "STRING"
+    ],
+    [
+      56,
+      46,
+      0,
+      47,
+      3,
+      "STRING"
+    ],
+    [
+      60,
+      46,
+      0,
+      47,
+      4,
+      "STRING"
+    ],
+    [
+      61,
+      46,
+      1,
+      45,
+      4,
+      "STRING"
+    ],
+    [
+      62,
+      46,
+      1,
+      45,
+      3,
+      "STRING"
+    ],
+    [
+      63,
+      12,
+      0,
+      47,
+      1,
+      "INT"
+    ],
+    [
+      64,
+      12,
+      0,
+      45,
+      1,
+      "INT"
+    ],
+    [
+      65,
+      13,
+      0,
+      47,
+      2,
+      "INT"
+    ],
+    [
+      66,
+      13,
+      0,
+      45,
+      2,
+      "INT"
+    ],
+    [
+      84,
+      4,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      317,
+      8,
+      0,
+      91,
+      0,
+      "IMAGE"
+    ],
+    [
+      403,
+      4,
+      1,
+      47,
+      0,
+      "CLIP"
+    ],
+    [
+      404,
+      4,
+      1,
+      45,
+      0,
+      "CLIP"
+    ],
+    [
+      603,
+      4,
+      0,
+      10,
+      0,
+      "MODEL"
+    ],
+    [
+      604,
+      47,
+      0,
+      10,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      605,
+      45,
+      0,
+      10,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      607,
+      166,
+      0,
+      168,
+      1,
+      "IMAGE"
+    ],
+    [
+      608,
+      165,
+      0,
+      168,
+      2,
+      "FACE_MODEL"
+    ],
+    [
+      609,
+      167,
+      0,
+      168,
+      3,
+      "OPTIONS"
+    ],
+    [
+      610,
+      8,
+      0,
+      168,
+      0,
+      "IMAGE"
+    ],
+    [
+      613,
+      168,
+      0,
+      53,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Group",
+      "bounding": [
+        269,
+        93,
+        1150,
+        720
+      ],
+      "color": "#a1309b",
+      "font_size": 24
+    },
+    {
+      "title": "Group",
+      "bounding": [
+        679,
+        -543,
+        732,
+        616
+      ],
+      "color": "#A88",
+      "font_size": 24
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6209213230591553,
+      "offset": [
+        -94.59097583867214,
+        451.721562986133
+      ]
+    }
+  },
+  "version": 0.4
+}
